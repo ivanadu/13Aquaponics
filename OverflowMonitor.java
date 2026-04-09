@@ -30,7 +30,7 @@ public class OverflowMonitor {
 	private static boolean valveOpen = true;
 
 	
-	
+	// main method
 	public static void main(String[] args) {
 		
 		ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
@@ -52,15 +52,15 @@ public class OverflowMonitor {
 			// Exception thrown when overflow detected
 			catch (OverflowDetectedException e) {
 				
-				String error_message = e.getMessage()+" detected at " + time();
+				String errorMessage = e.getMessage()+" detected at " + time();
 				
-				System.out.println(error_message);
+				System.out.println(errorMessage);
 				
 				// Valve previously open
 				if (valveOpen) {
 					closeValve();
 					valveOpen = false;
-					sendIMessage(phone, error_message);
+					sendIMessage(phone, errorMessage);
 				}
 
 				System.out.println(" ");
@@ -76,7 +76,8 @@ public class OverflowMonitor {
 		}, 0, interval, TimeUnit.SECONDS); 
 
 	}
-	
+
+	// Private method to check alarms
 	private static void checkAlarms() throws Exception {
 		
 		String responseBody;
@@ -155,7 +156,7 @@ public class OverflowMonitor {
     	
 	}
 	
-	
+	// private method to send a formatted message to specified number (variable defined at top)
 	private static void sendIMessage(String phoneNumber, String messageText) {
 	    try {
 	        // AppleScript command to tell Messages to send a text
@@ -176,7 +177,7 @@ public class OverflowMonitor {
 	    }
 	}
 	
-	
+	// formats time into more legible format
 	private static String time() {
 		LocalDateTime now = LocalDateTime.now();
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
@@ -185,12 +186,13 @@ public class OverflowMonitor {
 		return formattedDate;
 	}
 	
-	
+	// Would hypothetically include commands to close a physical valve. 
 	private static void closeValve() {
 		// NEXT STEPS add a response 
 		System.out.println("Valve closed at "+ time());
 	}
-	
+
+	// Would hypothetically include commands to open a physical valve. 
 	private static void openValve() {
 		// NEXT STEPS add a response 
 		System.out.println("Valve opened at " + time());
@@ -198,6 +200,7 @@ public class OverflowMonitor {
 
 }
 
+// Custom Overflow error
 class OverflowDetectedException extends Exception {
 
     public OverflowDetectedException(String message) {
