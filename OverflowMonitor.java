@@ -16,10 +16,10 @@ import java.io.IOException;
 public class OverflowMonitor {
 	
 	// VARIABLES TO CHANGE
-	private static String phone = "+16472840979";
-	private static int interval = 600;
-	private static boolean useLocalFile = true; 
-	private static boolean testOverflow = true;
+	private static String phone = "+16472840979"; // Phone number for notification receiving. Works with Apple iMessages
+	private static int interval = 600; // 10 minutes. Used to determine interval for checking the website overflow statuses
+	private static boolean useLocalFile = false; // false means reads from website. true reads from local file for testing
+	private static boolean testOverflow = true; // determines which local file to read from 
 	
 	// final variables
 	private static final String URL = "https://london.waterwai.com/alarms.php";
