@@ -20,6 +20,7 @@ public class OverflowMonitor {
 	private static int interval = 600; // 10 minutes. Used to determine interval for checking the website overflow statuses
 	private static boolean useLocalFile = false; // false means reads from website. true reads from local file for testing
 	private static boolean testOverflow = true; // determines which local file to read from 
+	private static String filePath = "/Users/ivanadu/eclipse-workspace/ES1050/src/"; // stores the file path leading to the alarms.php and alarms2.php local files
 	
 	// final variables
 	private static final String URL = "https://london.waterwai.com/alarms.php";
@@ -82,9 +83,9 @@ public class OverflowMonitor {
 
 	    if (useLocalFile) {
 	        if (testOverflow)
-	        	responseBody = Files.readString(Path.of("/Users/ivanadu/eclipse-workspace/ES1050/src/alarms2.php"));
+	        	responseBody = Files.readString(Path.of(filePath + "alarms2.php"));
 	        else 
-	        	responseBody = Files.readString(Path.of("/Users/ivanadu/eclipse-workspace/ES1050/src/alarms.php"));
+	        	responseBody = Files.readString(Path.of(filePath + "alarms.php"));
 	    } else {
 	    	// Extracting alarms data from website
 	        HttpRequest request = HttpRequest.newBuilder()
