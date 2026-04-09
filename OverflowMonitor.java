@@ -1,3 +1,5 @@
+// In order to run code on your own device, take a look at the "IMPORTANT: VARIABLES TO CHANGE" section
+
 // All libraries are standard Java libraries
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -16,7 +18,7 @@ import java.io.IOException;
 
 public class OverflowMonitor {
 	
-	// VARIABLES TO CHANGE
+	// IMPORTANT: VARIABLES TO CHANGE
 	private static String phone = "+16472840979"; // Phone number for notification receiving. Works with Apple iMessages
 	private static int interval = 600; // 10 minutes. Used to determine interval for checking the website overflow statuses
 	private static boolean useLocalFile = false; // false means reads from website. true reads from local file for testing
