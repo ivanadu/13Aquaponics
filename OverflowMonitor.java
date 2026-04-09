@@ -19,7 +19,7 @@ import java.io.IOException;
 public class OverflowMonitor {
 	
 	// IMPORTANT: VARIABLES TO CHANGE
-	private static String phone = "+16472840979"; // Phone number for notification receiving. Works with Apple iMessages
+	private static String phone = "+16472840979"; // Phone number for notification receiving. Works with Apple iMessages (Devices must be Apple devices)
 	private static int interval = 600; // 10 minutes. Used to determine interval for checking the website overflow statuses
 	private static boolean useLocalFile = false; // false means reads from website. true reads from local file for testing
 	private static boolean testOverflow = true; // determines which local file to read from 
